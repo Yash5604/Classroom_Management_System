@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-bar">
+            <i class='bx bx-menu sidebarOpen'></i>
+            <div class="menu">
+                <div class="logo-toggle">
+                    <i class='bx bx-x sidebarClose'></i>
+                </div>
+                <ul class="nav-links">
+                    <li>
+                        {% if request.session.username %}
+                            <p>Welcome, </p> {{request.session.username}}
+                        {% else %} 
+                            <h2>Faile to login, try again</h2>
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+            <div class="logout">
+                <a href="{% url 'logout' %}">
+                    <button type="submit" class="logout_btn">Log out</button>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <main>
+        {% block main %}
+        <div class="cards">
+            {% for c in classrooms %} 
+                <div class="subject_card">
+                    <a href="/{{c.classroom.join_code}}/display_class">{{c.classroom.class_name}}</a>
+                    <p class="subject_name">{{c.classroom.subject_name}}</p>
+                </div>
+            {% endfor %}
+        </div>
+        {% endblock %}
+    </main>
+    <div class="plus" onclick="fun()">
+        <i class='bx bx-plus'></i>
+        <div class="cjbtn">
+            <a href="/create_class" class="cbtn">Create Class</a>
+            <a href="/join_class" class="jbtn">Join Class</a>
+        </div>
+    </div>
+    <script src="{% static 'script.js' %}"></script>
+</body>
+</html>

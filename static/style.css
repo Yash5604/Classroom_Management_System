@@ -1,0 +1,370 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+html{
+    scroll-behavior: smooth;
+}
+
+/* register css */
+.register{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 420px;
+    width: 350px;
+    box-shadow: 0 5px 10px rgb(0 0 0 / 20%);
+    padding: 20px;
+}
+.register .register_form{
+    display: flex;
+    flex-direction: column;
+}
+.register_form input {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 0.5px solid #455a64;
+    outline: none;
+    border-radius: 2px;
+    background-color: white;
+}
+.register_form h2{
+    text-align: center;
+    color: #555;
+    margin-bottom: 20px;
+}
+.register_form .submit_btn{
+    position: relative;
+    border: 0;
+    outline: none;
+    color: white;
+    background-color: #455a64;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+/* login css */
+.login{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 300px;
+    width: 350px;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 5px 10px rgb(0 0 0 / 20%);
+    padding: 20px;
+}
+.login .login_form{
+    display: flex;
+    flex-direction: column;
+}
+.login_form input {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 0.5px solid #455a64;
+    outline: none;
+    border-radius: 2px;
+    background-color: white;
+}
+.login_form h2{
+    text-align: center;
+    color: #555;
+    margin-bottom: 20px;
+}
+.login_form .submit_btn{
+    position: relative;
+    border: 0;
+    outline: none;
+    color: white;
+    background-color: #455a64;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+/* create_class css */
+.create_class{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 350px;
+    width: 350px;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 5px 10px rgb(0 0 0 / 20%);
+    padding: 20px;
+}
+.create_class .create_class_form{
+    display: flex;
+    flex-direction: column;
+}
+.create_class_form input{
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 0.5px solid #455a64;
+    outline: none;
+    border-radius: 2px;
+    background-color: white;
+}
+.create_class_form h2{
+    text-align: center;
+    color: #555;
+    margin-bottom: 20px;
+}
+.create_class_form .create_btn{
+    position: relative;
+    border: 0;
+    outline: none;
+    color: white;
+    background-color: #2b4cf1;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+/* join_class css */
+.join_class {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 160px;
+    width: 350px;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 5px 10px rgb(0 0 0 / 20%);
+    padding: 20px;
+}
+.join_class .join_class_form{
+    display: flex;
+    flex-direction: column;
+}
+.join_class_form input{
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 0.5px solid #455a64;
+    outline: none;
+    border-radius: 2px;
+    background-color: white;
+}
+.join_class_form h2{
+    text-align: center;
+    color: #555;
+    margin-bottom: 20px;
+}
+.join_class_form .join_btn{
+    position: relative;
+    border: 0;
+    outline: none;
+    color: white;
+    background-color: #2b4cf1;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+/* post_assignment css */
+.post_assignment{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 405px;
+    width: 350px;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 5px 10px rgb(0 0 0 / 20%);
+    padding: 20px;
+}
+.post_assignment .post_assignment_form{
+    display: flex;
+    flex-direction: column;
+}
+.post_assignment_form input{
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 0.5px solid #455a64;
+    outline: none;
+    border-radius: 2px;
+    background-color: white;
+}
+.post_assignment_form h2{
+    text-align: center;
+    color: #555;
+    margin-bottom: 20px;
+}
+.post_assignment_form .assign_btn{
+    position: relative;
+    border: 0;
+    outline: none;
+    color: white;
+    background-color: #2b4cf1;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+/* assignment card css */
+.assignment{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    gap: 30px;
+    padding: 20px;
+}
+.assignment_card{
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    border: 0.0625rem solid #dadce0;
+    border-radius: 0.5rem;
+    padding: 20px;
+}
+.assignment_card .assignment_title{
+    font-weight: 500;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+.assignment_body .assignment_description{
+    font-weight: 400;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    font-size: 25px;
+}
+.assignment_body .assignment_due_date{
+    margin: 15px 0;
+}
+.assignment_body .assignment_view_btn{
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    width: 160px;
+    border: 0;
+    text-decoration: none;
+    outline: none;
+    color: white;
+    background-color: #0d6efd;
+    padding: 8px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.assignment_body .submit_assignment_btn{
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    width: 180px;
+    border: 0;
+    text-decoration: none;
+    outline: none;
+    color: white;
+    background-color: #0d6efd;
+    padding: 8px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.assignment_body .submission_status{
+    margin-top: 10px;
+}
+
+/* paticular assignment card css */
+.am_card{
+    box-shadow: 0 5px 10px rgb(0 0 0 / 20%);
+    position: absolute;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    padding: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Poppins', sans-serif;
+}
+.am_card .am_title{
+    font-size: 35px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+.am_card .am_description{
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+/* teacher card css */
+.teachers{
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    border: 0.0625rem solid #dadce0;
+    border-radius: 0.5rem;
+    width: 500px;
+    margin: 15px auto;
+}
+.teachers h5{
+    padding-top: 15px;
+    font-size: 25px;
+    text-align: center;
+    color: rgb(25,103,210);
+    fill: rgb(25,103,210);
+}
+.teacher_card{
+    padding: 20px;
+}
+
+/* student card css */
+.students{
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    border: 0.0625rem solid #dadce0;
+    border-radius: 0.5rem;
+    width: 500px;
+    margin: 15px auto;
+}
+.students h5{
+    padding-top: 15px;
+    font-size: 25px;
+    text-align: center;
+    color: rgb(25,103,210);
+    fill: rgb(25,103,210);
+}
+.student_card{
+    padding: 20px;
+}
+
+/* submit_assignment css */
+.submit_assignment{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 160px;
+    width: 350px;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 5px 10px rgb(0 0 0 / 20%);
+    padding: 20px;
+}
+.submit_assignment .submit_assignment_form{
+    display: flex;
+    flex-direction: column;
+}
+.submit_assignment_form input{
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 0.5px solid #455a64;
+    outline: none;
+    border-radius: 2px;
+    background-color: white;
+}
+.submit_assignment_form h2{
+    text-align: center;
+    color: #555;
+    margin-bottom: 20px;
+}
+.submit_assignment_form .submit_btn{
+    position: relative;
+    border: 0;
+    outline: none;
+    color: white;
+    background-color: #2b4cf1;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+@media (max-width: 415px){
+    .register, .login, .create_class, .join_class, .post_assignment, .submit_assignment{
+        width: 70%;
+    }
+}
+@media (max-width: 337px){
+    .post_assignment{
+        height: 86%;
+    }
+}

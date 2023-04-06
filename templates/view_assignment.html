@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    {% load tz %}
+    {% block main %}
+    <div class="am_card">
+        <h5 class="am_title">{{assignment.title}}</h5>
+        <div class="am_body">
+            <h5 class="am_description">{{assignment.description}}</h5>
+            {% if topics %}
+                {% for topic in topics %}
+                    <embed src="/media/{{ topic.files }}" width="200" height="200"></embed>
+                    <a href="{{ topic.file_url }}">{{ topic.file_url }}</a>
+                {% endfor %}
+            {% endif %}
+            {% if assignment.due and role == "student" %}
+                {% if submission %}
+                    {% if submission.submission_time > assignment.due %}
+                        <p class="submission_status">Done late</p>
+                    {% else %}
+                        <p class="submission_status">Turned in</p>
+                    {% endif %}
+                {% else %}
+                    {% get_current_timezone as tz %}
+                    {% if tz.now > assignment.due %}
+                        <p class="submission_status">Missing</p>
+                    {% else %}
+                        <p class="assignment_due_date">Due {{assignment.due}}</p>
+                        <a href="{{assignment.id}}/submit_assignment" class="submit_assignment_btn">Submit Assignment</a>
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+        </div>
+    </div> 
+    {% endblock %}
+</body>
+</html>

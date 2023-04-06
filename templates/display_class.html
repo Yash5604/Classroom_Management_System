@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+    <style>
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">{{classrooms.class_name}}</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="">Stream</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="display_class/classwork">Classwork</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="display_class/people">People</a>
+                    </li>
+                </ul>
+          </div>
+        </div>
+    </nav>
+    <div class="container mt-1 md-3">
+        {% if role == "teacher" %} 
+        <a href="display_class/post_assignment"><button type="button" class="btn btn-primary">+ Create Assignment</button></a>
+        {% endif %}
+    </div>
+    <div class="assignment">
+        {% load tz %}
+        {% block main %}
+            {% for a in assignments %} 
+            <div class="assignment_card">
+                <h5 class="assignment_title">{{a.assignment.title}}</h5>
+                <hr>
+                <div class="assignment_body">
+                    <h5 class="assignment_description">{{a.assignment.description}}</h5> 
+                    {% if a.topics %}
+                        {% for topic in a.topics %} 
+                            <embed src="{{topic.file_url}}" width="150" height="150" style="margin-bottom: 40px;"></embed>
+                        {% endfor %}
+                    {% endif %}
+                    <a href="display_class/{{a.assignment.id}}" class="assignment_view_btn">View Assignment</a>
+                    {% if a.assignment.due and role == "student" %}
+                        {% if submission %}
+                            {% if submission.submission_time > a.assignment.due %}
+                                <p class="submission_status">Done late</p>
+                            {% else %}
+                                <p class="submission_status">Turned in</p>
+                            {% endif %}
+                        {% else %}
+                            {% get_current_timezone as tz %}
+                            {% if tz.now > a.assignment.due %}
+                                <p class="submission_status">Missing</p>
+                            {% else %}
+                                <p class="assignment_due_date">Due {{a.assignment.due}}</p>
+                                <a href="display_class/{{a.assignment.id}}/submit_assignment" class="submit_assignment_btn">Submit Assignment</a>
+                            {% endif %}
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        {% endblock %}
+    </div>
+</body>
+</html>
